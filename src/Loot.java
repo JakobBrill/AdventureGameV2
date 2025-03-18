@@ -1,6 +1,5 @@
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Vector;
 
 public class Loot {
     private Player player;
@@ -398,7 +397,7 @@ public class Loot {
 
             if (action == 'y') {
                 invalidInput = false;
-            } else if (action == 'N') {
+            } else if (action == 'n') {
                 invalidInput = false;
                 this.sword.setName(swordName);
                 this.sword.setDamage(swordDamage);
@@ -431,7 +430,6 @@ public class Loot {
 
 
         player.getStats();
-
     }
 
 

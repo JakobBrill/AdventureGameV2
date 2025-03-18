@@ -75,6 +75,14 @@ public class Combat {
 
     }
 
+    public void surpriseAttack(){
+        System.out.println(this.enemy.getName() + " is attacking !");
+        boolean counterAttack = player.defense(this.enemy.getDamage(), this.enemy.getAgility());
+        if (counterAttack) {
+            enemy.takeDamage(this.player.getSword().getDamage());
+        }
+    }
+
     private void swordCombat(){
         this.enemy.defense(this.player.getSword().getDamage(), this.player.getAgility());
         if(!checkIfPlayerAndEnemyAreAlive()){} else {

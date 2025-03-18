@@ -34,7 +34,7 @@ public class Player {
             } else {
                 this.healthPotions--;
                 this.hp += 25;
-                if (this.healthPotions > 100) {
+                if (this.hp > 100) {
                     this.hp = 100;
                 }
                 System.out.println(this.name + " used a health potions and is now at " + this.hp + " Hp.");
@@ -70,8 +70,9 @@ public class Player {
     }
 
     public void takeDamage(int damage) {
-        this.hp -= (int) damage-(damage*(this.defense / 100));
-        System.out.println(this.name + " took " + damage + " damage");
+        int calcDamage = (int) ((int) damage - ((double) damage*((double) this.defense / 100)));;
+        this.hp -= calcDamage;
+        System.out.println(this.name + " took " + calcDamage + " damage"+ " (Damage reduction: " + this.defense + "%))");
         if (this.hp <= 0) {
             System.out.println(this.name + " died");
             System.out.println("GAME OVER");
@@ -98,7 +99,7 @@ public class Player {
                     if (playerVsEnemyAgility <= 10) {
                         playerVsEnemyAgility = 10;
                     }
-                    int random50 = ran.nextInt(49) + 1;
+                    int random50 = ran.nextInt(39) + 1;
                     if (random50 < playerVsEnemyAgility) {
                         System.out.println(this.name + " dodged the attack");
                     } else {
@@ -110,7 +111,7 @@ public class Player {
 
                 }
                 case 2: {
-                    int random100 = ran.nextInt(99) + 1;
+                    int random100 = ran.nextInt(49) + 1;
                     if (random100 < sword.getCounterattack()) {
                         System.out.println(this.name + " counterattacked successfully");
                         return true;

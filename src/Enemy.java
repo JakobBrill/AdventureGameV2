@@ -17,7 +17,7 @@ public class Enemy {
         this.agility = agility;
     }
     public void takeDamage(int damage) {
-        this.hp -= (int) damage-(damage*(this.defense / 100));
+        this.hp -= (int) ((int) damage - ((double) damage*((double) this.defense / 100)));;
         System.out.println(this.name + " took " + damage + " damage");
     }
     public void defense(int damage, int playerAgility) {
